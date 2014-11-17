@@ -83,12 +83,14 @@ Add this method to SplashScreenStylesheet (in `app/stylesheets/splash_screen_sty
 
 ```
   def splash_image(st)
-    st.frame = "a0:j12"
+    st.frame = "a0:l17"
     st.image = image.resource('splash_image')
   end
 ```
 
-## TODO: center the splash image and occupy the whole screen
+Note that the included `resources/splash_image.png` file is sized for the iPhone 6. 
+If you're targetting a different screen or want to use a different splash image size, you should adjust
+the line `st.frame = "a0:l17"` accordingly. See http://rubymotionquery.com/documentation/#post-147 to learn more about the RMQ grid system.
 
 ## TODO: Add the progress bar to the splash screen
 
