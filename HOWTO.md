@@ -69,7 +69,26 @@ def on_load
 end
 ```
 
-## TODO: Add the splash image to the splash screen
+## Add the splash image to the splash screen
+
+Add a PNG file named `splash_image.png` to the `resources` directory
+
+Add this line to the botton of SplashScreen#on_load:
+
+```
+rmq.append UIImageView, :splash_image
+```
+
+Add this method to SplashScreenStylesheet (in `app/stylesheets/splash_screen_stylesheet.rb`)
+
+```
+  def splash_image(st)
+    st.frame = "a0:j12"
+    st.image = image.resource('splash_image')
+  end
+```
+
+## TODO: center the splash image and occupy the whole screen
 
 ## TODO: Add the progress bar to the splash screen
 
