@@ -44,7 +44,30 @@ class ScreenScreen < PM::Screen
 end
 ```
 
-## TODO: Create a template for the splash screen
+## Create a template for the splash screen
+
+Create the file `app/stylesheets/splash_screen_stylesheet.rb`:
+
+```
+class SplashScreenStylesheet < ApplicationStylesheet
+  def setup
+  end
+
+  def root_view(st)
+    st.background_color = color.green
+  end
+
+end
+```
+
+Modify SplashScreen#on_load in `app/screens/splash_screen.rb` to use the style sheet:
+
+```
+def on_load
+  rmq.stylesheet = SplashScreenStylesheet
+  rmq(self.view).apply_style :root_view
+end
+```
 
 ## TODO: Add the splash image to the splash screen
 
