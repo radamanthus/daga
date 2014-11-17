@@ -26,7 +26,7 @@ class AppDelegate < PM::Delegate
 end
 ```
 
-## Add the Splash Screen
+## Add the splash screen
 
 Create the `app/screens` directory.
 
@@ -44,6 +44,14 @@ class ScreenScreen < PM::Screen
 end
 ```
 
+## TODO: Create a template for the splash screen
 
+## TODO: Add the splash image to the splash screen
+
+## TODO: Add the progress bar to the splash screen
+
+## TODO: Increment the progress bar by 20% every second
+
+## TODO: Display the main screen when the splash progress reaches 100%
 
 
