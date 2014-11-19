@@ -6,5 +6,6 @@ class SplashScreen < PM::Screen
     rmq(self.view).apply_style :root_view
 
     rmq.append UIImageView, :splash_image
+    rmq.append UIProgressView, :progress_bar
   end
 end

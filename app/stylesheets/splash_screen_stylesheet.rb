@@ -2,6 +2,11 @@ class SplashScreenStylesheet < ApplicationStylesheet
   def setup
   end
 
+  def progress_bar(st)
+    st.frame = "c13:j13"
+    st.view.progress = 0.0
+  end
+
   def root_view(st)
     st.background_color = color.white
   end

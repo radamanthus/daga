@@ -94,6 +94,21 @@ the line `st.frame = "a0:l17"` accordingly. See http://rubymotionquery.com/docum
 
 ## TODO: Add the progress bar to the splash screen
 
+Create the progress_bar view at the bottom of SplashScreen#on_load (in `app/screens/splash_screen.rb`):
+
+```
+rmq.append UIProgressView, :progress_bar
+```
+
+Create the SplashScreenStylesheet#progress_bar method in `app/stylesheets/splash_screen_stylesheet.rb`:
+
+```
+  def progress_bar(st)
+    st.frame = "c13:j13"
+    st.view.progress = 0.0
+  end
+```
+
 ## TODO: Increment the progress bar by 20% every second
 
 ## TODO: Display the main screen when the splash progress reaches 100%
