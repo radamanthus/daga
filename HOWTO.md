@@ -71,8 +71,6 @@ end
 
 ## Add the splash image to the splash screen
 
-Add a PNG file named `splash_image.png` to the `resources` directory
-
 Add this line to the botton of SplashScreen#on_load:
 
 ```
@@ -84,13 +82,12 @@ Add this method to SplashScreenStylesheet (in `app/stylesheets/splash_screen_sty
 ```
   def splash_image(st)
     st.frame = "a0:l17"
-    st.image = image.resource('splash_image')
+    st.image = image.resource('Default')
   end
 ```
 
-Note that the included `resources/splash_image.png` file is sized for the iPhone 6.
-If you're targetting a different screen or want to use a different splash image size, you should adjust
-the line `st.frame = "a0:l17"` accordingly. See http://rubymotionquery.com/documentation/#post-147 to learn more about the RMQ grid system.
+Note that the line `st.frame = "a0:l17"` is for the iPhoen 6. If you're targetting a different screen or want to use a different splash image size, you should adjust
+this line accordingly. See http://rubymotionquery.com/documentation/#post-147 to learn more about the RMQ grid system.
 
 ## Add the progress bar to the splash screen
 

@@ -13,7 +13,7 @@ class SplashScreenStylesheet < ApplicationStylesheet
 
   def splash_image(st)
     st.frame = "a0:l17"
-    st.image = image.resource('splash_image')
+    st.image = image.resource('Default')
   end
 end
 
