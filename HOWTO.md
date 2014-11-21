@@ -110,6 +110,7 @@ Create the SplashScreenStylesheet#progress_bar method in `app/stylesheets/splash
 ```
 
 ## TODO: Increment the progress bar by 20% every second
+## Code is done, just need to update this HOWTO
 
 ## TODO: Display the main screen when the splash progress reaches 100%
 
