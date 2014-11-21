@@ -88,7 +88,7 @@ Add this method to SplashScreenStylesheet (in `app/stylesheets/splash_screen_sty
   end
 ```
 
-Note that the included `resources/splash_image.png` file is sized for the iPhone 6. 
+Note that the included `resources/splash_image.png` file is sized for the iPhone 6.
 If you're targetting a different screen or want to use a different splash image size, you should adjust
 the line `st.frame = "a0:l17"` accordingly. See http://rubymotionquery.com/documentation/#post-147 to learn more about the RMQ grid system.
 
@@ -129,6 +129,44 @@ Add these methods to SplashScreen (`app/screens/splash_screen.rb`):
   end
 ```
 
-## TODO: Display the main screen when the splash progress reaches 100%
+## Display the main screen when the splash progress reaches 100%
+
+Modify the SplashScreen#increment_progress method to load the `MainScreen` when progress reaches 100%:
+
+```
+  def increment_progress
+    progress_bar = rmq(UIProgressView).get
+    progress_bar.setProgress(progress_bar.progress + 0.2)
+    puts "Updating progress to #{progress_bar.progress}"
+    progress_bar.setNeedsDisplay
+    if progress_bar.progress < 1.0
+      self.performSelector("increment_progress", withObject: nil, afterDelay: 1.0)
+    else
+      open MainScreen
+    end
+  end
+```
+
+Create MainScreen in `app/screens/main_screen.rb`:
+
+```
+class MainScreen < PM::Screen
+  title "Main Screen"
+
+  def on_load
+    rmq.stylesheet = MainScreenStylesheet
+    rmq(self.view).apply_style :root_view
+  end
+end
+```
+
+Create MainStylesheet in `app/stylesheets/main_screen_stylesheet.rb`:
+
+```
+class MainScreenStylesheet < ApplicationStylesheet
+  def root_view(st)
+  end
+end
+```
 
 

@@ -8,6 +8,8 @@ class SplashScreen < PM::Screen
     progress_bar.setNeedsDisplay
     if progress_bar.progress < 1.0
       self.performSelector("increment_progress", withObject: nil, afterDelay: 1.0)
+    else
+      open MainScreen
     end
   end
 
