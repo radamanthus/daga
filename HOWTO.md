@@ -92,7 +92,7 @@ Note that the included `resources/splash_image.png` file is sized for the iPhone
 If you're targetting a different screen or want to use a different splash image size, you should adjust
 the line `st.frame = "a0:l17"` accordingly. See http://rubymotionquery.com/documentation/#post-147 to learn more about the RMQ grid system.
 
-## TODO: Add the progress bar to the splash screen
+## Add the progress bar to the splash screen
 
 Create the progress_bar view at the bottom of SplashScreen#on_load (in `app/screens/splash_screen.rb`):
 
@@ -109,8 +109,25 @@ Create the SplashScreenStylesheet#progress_bar method in `app/stylesheets/splash
   end
 ```
 
-## TODO: Increment the progress bar by 20% every second
-## Code is done, just need to update this HOWTO
+## Increment the progress bar by 20% every second
+
+Add these methods to SplashScreen (`app/screens/splash_screen.rb`):
+
+```
+  def increment_progress
+    progress_bar = rmq(UIProgressView).get
+    progress_bar.setProgress(progress_bar.progress + 0.2)
+    puts "Updating progress to #{progress_bar.progress}"
+    progress_bar.setNeedsDisplay
+    if progress_bar.progress < 1.0
+      self.performSelector("increment_progress", withObject: nil, afterDelay: 1.0)
+    end
+  end
+
+  def on_appear
+    self.performSelector("increment_progress", withObject: nil, afterDelay: 1.0)
+  end
+```
 
 ## TODO: Display the main screen when the splash progress reaches 100%
 
